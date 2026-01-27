@@ -11,7 +11,7 @@ pinned: true
 # image: './img/defalut-cover.png'
 ---
 
-如果想要看到之前的文章，请点击[这里]   (https://m.olinl.com/archive)
+如果想要看到之前的文章，请点击[这里](https://m.olinl.com/archive)
 
 ---
 

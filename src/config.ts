@@ -25,7 +25,7 @@ const SITE_TIMEZONE = 8; //设置你的网站时区 from -12 to 12 default in UT
 export const siteConfig: SiteConfig = {
 	title: "Olinl Blog",
 	subtitle: "技术分享",
-	siteURL: "https://m.olinl.com/", // 请替换为你的站点URL，以斜杠结尾
+	siteURL: "https://www.olinl.com/", // 请替换为你的站点URL，以斜杠结尾
 	siteStartDate: "2024-12-31", // 站点开始运行日期，用于站点统计组件计算运行天数
 
 	timeZone: SITE_TIMEZONE,
@@ -286,7 +286,7 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "监控",
+			name: "统计",
 			url: "https://umami.olinl.com/share/kLA1YiPiJbY2Lqi6",
 			external: true,
 			icon: "material-symbols:monitor",
@@ -740,5 +740,6 @@ export const umamiConfig = {
 
 export const gitHubEditConfig: GitHubEditConfig = {
 	enable: true,
-	baseUrl: "https://github.com/olinll/mizuki/blob/main/src/content/posts",
+	baseUrl:
+		"https://github.com/olinll/blog-mizuki/blob/main/src/content/posts",
 };

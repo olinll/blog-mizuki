@@ -32,24 +32,21 @@ jobs:
 
                   # 发送 Bark 通知的函数
                   send_notification() {
-                    local status=$1
-                    local title="博客部署状态"
-                    local body="状态: $status
-                  内容: $COMMIT_MSG
-                  提交: $CURRENT_HASH
-                  地址: $SITE_URL"
+                    local status_text=$1
+                    # 对推送标题进行处理，防止双引号破坏 JSON 格式
+                    local escaped_msg=$(echo "$COMMIT_MSG" | sed 's/"/\\"/g' | tr -d '\n\r')
                     
-                    # 使用 JSON 格式通过 POST 发送，更安全地处理特殊字符
-                    curl -s -X POST "https://api.day.app/push" \
+                    echo "正在发送 Bark 通知..."
+                    curl -f -X POST "https://api.day.app/push" \
                          -H "Content-Type: application/json" \
                          -d "{
                            \"device_key\": \"$BARK_KEY\",
-                           \"title\": \"$title\",
-                           \"body\": \"$body\",
+                           \"title\": \"博客部署状态\",
+                           \"body\": \"状态: $status_text\n内容: $escaped_msg\n提交: $CURRENT_HASH\n地址: $SITE_URL\",
                            \"group\": \"BlogDeploy\",
                            \"icon\": \"https://astro.build/favicon.svg\",
                            \"url\": \"$SITE_URL\"
-                         }" > /dev/null
+                         }"
                   }
 
                   # 轮询检查

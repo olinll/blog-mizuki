@@ -1,0 +1,62 @@
+name: Deployment Check
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+jobs:
+    check-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Check Deployment Status
+              run: |
+                  # 从 src/config.ts 中提取 siteURL
+                  SITE_URL=$(grep 'siteURL:' src/config.ts | sed -E 's/.*siteURL: "(.*)".*/\1/')
+                  if [ -z "$SITE_URL" ]; then
+                    echo "Error: Could not find siteURL in src/config.ts"
+                    exit 1
+                  fi
+                  echo "Target Site URL: $SITE_URL"
+
+                  # 获取当前的 commit hash (前 7 位)
+                  CURRENT_HASH=$(git rev-parse --short=7 HEAD)
+                  echo "Expected Commit Hash: $CURRENT_HASH"
+
+                  # 轮询检查
+                  MAX_RETRIES=30
+                  RETRY_INTERVAL=20
+
+                  echo "Starting deployment check loop..."
+
+                  for ((i=1; i<=MAX_RETRIES; i++)); do
+                    echo "--- Attempt $i/$MAX_RETRIES ---"
+                    
+                    # 使用 curl 获取页面内容，并提取 commit hash
+                    # 搜索模式匹配 Footer.astro 中生成的链接格式: .../blog-mizuki/commit/xxxxxxx
+                    ONLINE_HASH=$(curl -sL "$SITE_URL" | grep -oP 'blog-mizuki/commit/\K[a-z0-9]{7}' | head -n 1)
+                    
+                    if [ "$ONLINE_HASH" == "$CURRENT_HASH" ]; then
+                      echo "✅ Success! Online version ($ONLINE_HASH) matches current commit ($CURRENT_HASH)."
+                      echo "提示：博客已成功部署并更新到最新版本！"
+                      exit 0
+                    fi
+                    
+                    if [ -z "$ONLINE_HASH" ]; then
+                      echo "⏳ Could not find commit hash on the page yet. Site might still be updating..."
+                    else
+                      echo "⏳ Online version is still $ONLINE_HASH. Waiting for $CURRENT_HASH..."
+                    fi
+                    
+                    if [ $i -lt $MAX_RETRIES ]; then
+                      echo "Waiting for $RETRY_INTERVAL seconds before next check..."
+                      sleep $RETRY_INTERVAL
+                    fi
+                  done
+
+                  echo "❌ Error: Deployment check timed out after $((MAX_RETRIES * RETRY_INTERVAL / 60)) minutes."
+                  echo "The online version didn't update to $CURRENT_HASH in time."
+                  exit 1

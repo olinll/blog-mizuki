@@ -44,7 +44,7 @@ jobs:
                            \"title\": \"博客部署状态\",
                            \"body\": \"状态: $status_text\n内容: $escaped_msg\n提交: $CURRENT_HASH\n地址: $SITE_URL\",
                            \"group\": \"BlogDeploy\",
-                           \"icon\": \"https://astro.build/favicon.svg\",
+                           \"icon\": \"https://www.olinl.com/images/eo.jpg\",
                            \"url\": \"$SITE_URL\"
                          }"
                   }

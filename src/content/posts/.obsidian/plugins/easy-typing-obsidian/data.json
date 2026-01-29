@@ -55,7 +55,7 @@
   "userCvtRuleSettingsOpen": true,
   "StrictModeEnter": true,
   "StrictLineMode": "enter_twice",
-  "EnhanceModA": false,
+  "EnhanceModA": true,
   "TryFixChineseIM": true,
   "PuncRectify": true,
   "FixMacOSContextMenu": false,

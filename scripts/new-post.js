@@ -53,8 +53,20 @@ tags: []
 category: ''
 draft: true
 pinned: false
-image: './img/defalut-cover.png'
+image: './cover/defalut-cover.png'
 ---
+> [!IMPORTANT]
+> PS：此文章为归档文章，日期固定为 2026-01-01，如有修改将修改为最后修改日期，以便重新启用该文章
+
+# 正文部分
+
+
+
+
+
+
+> [!IMPORTANT]
+> PS：此文章为归档文章，日期固定为 2026-01-01，如有修改将修改为最后修改日期，以便重新启用该文章
 `;
 
 fs.writeFileSync(path.join(targetDir, fileName), content);

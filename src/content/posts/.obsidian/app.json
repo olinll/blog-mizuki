@@ -1,0 +1,11 @@
+{
+  "attachmentFolderPath": "assets",
+  "trashOption": "none",
+  "readableLineLength": false,
+  "showLineNumber": false,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "focusNewTab": true,
+  "promptDelete": true,
+  "strictLineBreaks": true
+}

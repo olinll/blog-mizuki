@@ -274,100 +274,6 @@ export const navBarConfig: NavBarConfig = {
 			external: true,
 			icon: "material-symbols:note",
 		},
-
-		// 支持自定义导航栏链接，支持多级菜单
-		// {
-		// 	name: "Links",
-		// 	url: "/links/",
-		// 	icon: "material-symbols:link",
-		// 	children: [
-		// 		{
-		// 			name: "GitHub",
-		// 			url: "https://github.com/matsuzaka-yuki/Mizuki",
-		// 			external: true,
-		// 			icon: "fa6-brands:github",
-		// 		},
-		// 		{
-		// 			name: "Bilibili",
-		// 			url: "https://space.bilibili.com/701864046",
-		// 			external: true,
-		// 			icon: "fa6-brands:bilibili",
-		// 		},
-		// 		{
-		// 			name: "Gitee",
-		// 			url: "https://gitee.com/matsuzakayuki/Mizuki",
-		// 			external: true,
-		// 			icon: "mdi:git",
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	name: "My",
-		// 	url: "/content/",
-		// 	icon: "material-symbols:person",
-		// 	children: [
-		// 		{
-		// 			name: "Anime",
-		// 			url: "/anime/",
-		// 			icon: "material-symbols:movie",
-		// 		},
-		// 		{
-		// 			name: "Diary",
-		// 			url: "/diary/",
-		// 			icon: "material-symbols:book",
-		// 		},
-		// 		{
-		// 			name: "Gallery",
-		// 			url: "/albums/",
-		// 			icon: "material-symbols:photo-library",
-		// 		},
-		// 		{
-		// 			name: "Devices",
-		// 			url: "devices/",
-		// 			icon: "material-symbols:devices",
-		// 			external: false,
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	name: "About",
-		// 	url: "/content/",
-		// 	icon: "material-symbols:info",
-		// 	children: [
-		// 		{
-		// 			name: "About",
-		// 			url: "/about/",
-		// 			icon: "material-symbols:person",
-		// 		},
-		// 		{
-		// 			name: "Friends",
-		// 			url: "/friends/",
-		// 			icon: "material-symbols:group",
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	name: "Others",
-		// 	url: "#",
-		// 	icon: "material-symbols:more-horiz",
-		// 	children: [
-		// 		{
-		// 			name: "Projects",
-		// 			url: "/projects/",
-		// 			icon: "material-symbols:work",
-		// 		},
-		// 		{
-		// 			name: "Skills",
-		// 			url: "/skills/",
-		// 			icon: "material-symbols:psychology",
-		// 		},
-		// 		{
-		// 			name: "Timeline",
-		// 			url: "/timeline/",
-		// 			icon: "material-symbols:timeline",
-		// 		},
-		// 	],
-		// },
 	],
 };
 
@@ -382,39 +288,14 @@ export const profileConfig: ProfileConfig = {
 	links: [
 		{
 			name: "QQ",
-			icon: "fa6-brands:qq",
+			icon: "fa7-brands:qq",
 			url: "https://qm.qq.com/q/vVVAnE1OSe",
 		},
 		{
 			name: "GitHub",
-			icon: "fa6-brands:github",
+			icon: "fa7-brands:github",
 			url: "https://github.com/olinll",
 		},
-		// {
-		// 	name: "Bilibili",
-		// 	icon: "fa6-brands:bilibili",
-		// 	url: "https://space.bilibili.com/701864046",
-		// },
-		// {
-		// 	name: "Gitee",
-		// 	icon: "mdi:git",
-		// 	url: "https://gitee.com/matsuzakayuki",
-		// },
-		// {
-		// 	name: "GitHub",
-		// 	icon: "fa6-brands:github",
-		// 	url: "https://github.com/matsuzaka-yuki",
-		// },
-		// {
-		// 	name: "Codeberg",
-		// 	icon: "simple-icons:codeberg",
-		// 	url: "https://codeberg.org",
-		// },
-		// {
-		// 	name: "Discord",
-		// 	icon: "fa6-brands:discord",
-		// 	url: "https://discord.gg/MqW6TcQtVM",
-		// },
 	],
 };
 
